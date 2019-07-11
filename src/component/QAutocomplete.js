@@ -183,6 +183,11 @@ export default function(ssrContext) {
         return {
           key: 'option',
           fn: (scope) => {
+            scope.removeOption = this.removeFromSelect
+            scope.optionLabel = this.optionLabel
+            scope.optionValue = this.optionValue
+            scope.newValue = this.newValue
+            if (this.$scopedSlots.option) return [this.$scopedSlots.option(scope)]
             return [this.__item(h, scope)]
           }
         }
